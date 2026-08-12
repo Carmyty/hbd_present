@@ -1,0 +1,119 @@
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 0.97;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes scanline-move {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes noise-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-1%, 1%);
+  }
+  50% {
+    transform: translate(1%, -1%);
+  }
+  75% {
+    transform: translate(-1%, -1%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes glitch-skew {
+  0%,
+  100% {
+    transform: none;
+  }
+  20% {
+    transform: skewX(0.5deg) translateX(1px);
+  }
+  40% {
+    transform: skewX(-0.4deg) translateX(-1px);
+  }
+  60% {
+    transform: none;
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes waveform {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.pixel-flicker {
+  animation: flicker 2.8s steps(2) infinite;
+}
+
+.glitch-soft {
+  animation: glitch-skew 3.5s steps(2) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink,
+  .pixel-flicker,
+  .glitch-soft,
+  .anim-scan,
+  .anim-noise,
+  .anim-wave,
+  .anim-float {
+    animation: none !important;
+  }
+}
+
+.anim-scan {
+  animation: scanline-move 0.12s linear infinite;
+}
+
+.anim-noise {
+  animation: noise-shift 0.35s steps(2) infinite;
+}
+
+.anim-wave {
+  animation: waveform 0.55s ease-in-out infinite;
+}
+
+.anim-float {
+  animation: float-y 3s ease-in-out infinite;
+}
